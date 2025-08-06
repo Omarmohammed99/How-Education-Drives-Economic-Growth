@@ -124,7 +124,7 @@ fig7 = px.bar(
     y='GDP (Current USD)',
     color='GDP per Capita Category',
     text='GDP per Capita Category',
-    title="GDP of Countries with 100% Literacy Rate (Descending)"
+    title="GDP of Countries with 100% Literacy Rate "
 )
 
 
@@ -135,6 +135,7 @@ fig7.update_layout(
 )
 
 st.plotly_chart(fig7, use_container_width=True)
+
 
 
 
