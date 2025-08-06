@@ -108,3 +108,34 @@ elif page == "Insights":
     fig6 = px.scatter(df, x="Physician Density", y="Unemployment Rate (%)", color="Continent",
                       hover_name="Country", size="Physician Density")
     st.plotly_chart(fig6, use_container_width=True)
+
+    # 4. GDP of Countries with 100% Literacy Rate (Descending with GDP Category Labels)
+
+
+df_100 = df[df['Literacy Rate'] == 100]
+
+
+df_100_sorted = df_100.sort_values(by='GDP (Current USD)', ascending=False)
+
+
+fig7 = px.bar(
+    df_100_sorted,
+    x='Country',
+    y='GDP (Current USD)',
+    color='GDP per Capita Category',
+    text='GDP per Capita Category',
+    title="GDP of Countries with 100% Literacy Rate (Descending)"
+)
+
+
+fig7.update_traces(textposition='outside')
+fig7.update_layout(
+    xaxis_tickangle=45,
+    xaxis={'categoryorder': 'total descending'}
+)
+
+st.plotly_chart(fig7, use_container_width=True)
+
+
+
+
